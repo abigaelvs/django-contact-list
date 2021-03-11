@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style-edit.css' %}">
+{% endblock css %}
+
+{% block header %}
+	<header class="hero">
+		
+		<a href="{% url 'contact:home' %}">
+			<i class="fas fa-chevron-circle-left back-btn"></i>
+		</a>
+
+		<div class="hero-info">
+			<h1 class="name">Add Contact</h1>
+		</div>
+	</header>
+{% endblock header %}
+
+{% block content %}
+	<form action="" method="POST">
+		{% csrf_token %}
+		<section class="contact-info">
+			<div class="info-line">
+				<i class="fas fa-phone icon-gradient"></i>
+				{{ form.name }}
+			</div>
+
+			<div class="info-line">
+				<i class="fas fa-user-circle icon-gradient"></i>
+				{{ form.relation }}
+			</div>
+			<div  class="info-line">
+				<i class="fas fa-sms icon-gradient"></i>
+				{{ form.phone }}
+			</div>
+			<div  class="info-line">
+				<i class="fas fa-envelope icon-gradient"></i>
+				{{ form.email }}
+			</div>
+			<div  class="info-line">
+				<i class="fas fa-map-marker-alt icon-gradient location"></i>
+				{{ form.address }}
+			</div>
+		</section>
+	
+		<section class="button-container">
+			<div class="update-contact">
+				<i  class="fas fa-check-circle icon-gradient"></i>
+				<button class="button" type="submit">Add Contact</button>
+			</div>
+		</section>
+	</form>
+{% endblock content %}
+    

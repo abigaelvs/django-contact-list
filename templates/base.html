@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+	{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	{% endblock css %}
+		
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/6b20b1c14d.js" crossorigin="anonymous"></script>
+
+	<title>Contact Form</title>
+</head>
+<body>
+
+	<div class="container">
+		
+		{% block header %}
+			<!--  SEARCH FORM -->
+			<header class="header">
+				
+				<form class="search-bar" action="/" method="GET" id="search-form">
+					<input type="search-name" class="contact-search" name="search-area" placeholder="Search" value="{{ search_input }}">
+
+					<i class="fas fa-search" onclick="document.getElementById('search-form').submit();"></i>
+				</form>
+
+				<!--  ADD-CONTACT BUTTON/ICON -->
+				<a href="{% url 'contact:add-contact' %}"><i class="fas fa-plus-circle add"></i></a>
+			</header>
+		{% endblock header %}
+			
+		{% block content %}
+
+		{% endblock content %}
+			
+	</div>
+</body>
+</html>

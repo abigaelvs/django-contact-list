@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/style-delete.css' %}">
+{% endblock css %}
+
+
+{% block header %}
+	<header class="hero">
+		<a href="">
+			<i class="fas fa-chevron-circle-left back-btn"></i>
+		</a>
+		<div class="hero-info">
+			<h1 class="name">Jane Doe</h1>
+			<p class="relationship-hero">Friend</p>
+		</div>
+	</header>
+{% endblock header %}
+	
+{% block content %}
+	<section class="delete-container">
+		<p>Are you sure you want to delete this contact?</p>
+		<form action="" method='POST'>
+			{% csrf_token %}
+			<div class="delete-contact">
+				<i class="fas fa-trash delete-icon"></i>
+				<button class="delete-button">Delete Contact</button>
+			</div>
+		</form>
+	</section>
+{% endblock content %}
+	
